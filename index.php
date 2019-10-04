@@ -1,5 +1,13 @@
 <?php
 
+//---To include-------------------------------------------------------------------------
+
+include 'include/viewFunctions.php';
+include 'include/apiFunctions.php';
+
+//--------------------------------------------------------------------------------------
+
+
 //---Some Globals and Initiators--------------------------------------------------------
 
 session_start();
@@ -13,8 +21,8 @@ $curPath = parse_url($curUrl, PHP_URL_PATH);
 //---The URL Router---------------------------------------------------------------------
 
 $pathArray = [
-    '\/' => 'apiWelcome',
-    '\/api\/table\/get\/(.*)' => 'tableGet',
+    '\/' => 'view_appFrame',
+    '\/api\/table\/get\/(.*)' => 'api_tableGet',
 ];
 
 $keys = array_map('strlen', array_keys($pathArray));
@@ -24,7 +32,7 @@ array_multisort($keys, SORT_DESC, $pathArray);
 
 foreach($pathArray as $pathPat => $func){
     $matchCHK = false;
-    if( preg_match('/'.$pathPat.'/i', $curPath, $matches, PREG_OFFSET_CAPTURE) ){
+    if( preg_match('/^'.$pathPat.'/i', $curPath, $matches, PREG_OFFSET_CAPTURE) ){
         unset($matches[0]);
         $varAry = [];
         foreach($matches as $var){
@@ -56,19 +64,7 @@ function arrayToJSON($array, $pretty=false){
 //--------------------------------------------------------------------------------------
 
 
-//---The Functions per Path-------------------------------------------------------------
 
-function apiWelcome(){
-    echo "Web Application Backend Frame incl. Rest API - written in PHP";
-}
-
-//--------------------
-
-function tableGet($varAry){
-    //echo"<pre>" . arrayToJSON($varAry, true);
-    echo"<pre>".print_r($varAry,true)."</pre>";
-}
-//--------------------------------------------------------------------------------------
 
 
 ?>
