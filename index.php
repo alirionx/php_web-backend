@@ -1,5 +1,23 @@
 <?php
 
+//---App Config-------------------------------------------------------------------------
+
+$baseURL = '/';
+    
+//-SQLite3--------
+//Module "php-sqlite3" must be installed/enabled
+//$db = new SQLite3('db/example.db');
+    
+//-MySQL----------
+//Module "php-mysql" must be installed/enabled
+//$dbHost = "localhost";
+//$dbUser = "username";
+//$dbPassword = "password";
+//$db = new mysqli($dbHost, $dbUser, $dbPassword);
+
+//--------------------------------------------------------------------------------------
+
+
 //---To include-------------------------------------------------------------------------
 
 include 'include/viewFunctions.php';
