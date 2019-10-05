@@ -14,7 +14,6 @@ $baseURL = '/';
 //$dbUser = "username";
 //$dbPassword = "password";
 //$db = new mysqli($dbHost, $dbUser, $dbPassword);
-
 //--------------------------------------------------------------------------------------
 
 
@@ -32,7 +31,7 @@ session_start();
 $curHost = $_SERVER['SERVER_NAME'];
 $curUrl  = $_SERVER['REQUEST_URI'];
 $curPath = parse_url($curUrl, PHP_URL_PATH);
-
+//echo $curPath;
 //--------------------------------------------------------------------------------------
 
 
@@ -40,7 +39,7 @@ $curPath = parse_url($curUrl, PHP_URL_PATH);
 
 $pathArray = [
     '\/' => 'view_appFrame',
-    '\/api\/table\/get\/(.*)' => 'api_tableGet',
+    '\/test\/api\/table\/get\/(.*)' => 'api_tableGet',
 ];
 
 $keys = array_map('strlen', array_keys($pathArray));
