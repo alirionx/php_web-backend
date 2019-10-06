@@ -1,2 +1,3 @@
+#this is an example rewrite config for subpath "/test"
 RewriteEngine On
 RewriteRule ^api/(.*) /test/index.php  [QSA,L]
