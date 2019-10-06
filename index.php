@@ -14,7 +14,6 @@ $baseURL = '/';
 //$dbUser = "username";
 //$dbPassword = "password";
 //$db = new mysqli($dbHost, $dbUser, $dbPassword);
-
 //--------------------------------------------------------------------------------------
 
 
